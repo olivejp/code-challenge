@@ -10,7 +10,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CodeChallenge1 {
 
     private int[] rotate(int[] array, int rotate) {
-        // TODO Fill this method
+        int numberToMove;
+        int numberToSave;
+        int newIndex;
+        for (int i = 0; i < rotate; i++) {
+            numberToSave = -1;
+            for (int j = array.length - 1; j >= 0; j--) {
+                newIndex = (j - 1 >= 0) ? j - 1 : array.length - 1;
+                numberToMove = (numberToSave > -1) ? numberToSave : array[j];
+                numberToSave = array[newIndex];
+                array[newIndex] = numberToMove;
+            }
+        }
         return array;
     }
 
